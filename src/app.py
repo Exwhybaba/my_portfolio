@@ -89,7 +89,6 @@ app.index_string = '''
     </body>
 </html>
 '''
-
 # Helper function to encode images
 def encode_image(image_path):
     with open(image_path, 'rb') as f:

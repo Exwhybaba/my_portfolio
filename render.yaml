@@ -6,8 +6,8 @@ services:
     plan: free
     # A requirements.txt file must exist
     buildCommand: pip install -r requirements.txt
-    # Using wsgi.py in the root directory
-    startCommand: gunicorn wsgi:server
+    # Use the app.py in the root directory
+    startCommand: gunicorn app:server
     envVars:
       - key: PYTHON_VERSION
         value: 3.10.0
