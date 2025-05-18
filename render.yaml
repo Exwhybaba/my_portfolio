@@ -2,8 +2,11 @@ services:
   - type: web
     name: portfolio
     env: python
+    plan: free
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app:server
+    startCommand: gunicorn wsgi:application
     envVars:
       - key: PYTHON_VERSION
-        value: 3.9.12 
+        value: 3.9.12
+    autoDeploy: true
+    branch: main 
