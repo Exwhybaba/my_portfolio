@@ -1,12 +1,13 @@
 services:
+  # See https://render.com/docs/blueprint-spec for more info on render blueprints
   - type: web
-    name: my_portfolio
+    name: Seye_Portfolio
     env: python
     plan: free
+    # A requirements.txt file must exist
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn wsgi:application
+    # A src/app.py file must exist and contain `server=app.server`
+    startCommand: gunicorn --chdir src app:server
     envVars:
       - key: PYTHON_VERSION
-        value: 3.9.12
-    autoDeploy: true
-    branch: main
+        value: 3.10.0
