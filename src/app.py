@@ -98,14 +98,15 @@ def encode_image(image_path):
 # Get climate challenge images
 climate_images = []
 data_dir = os.path.join(os.getcwd(), 'data')
-for file in os.listdir(data_dir):
-    if file.startswith('climate') and file.endswith(('.jpg', '.jpeg', '.png')):
-        climate_images.append(encode_image(os.path.join(data_dir, file)))
+if os.path.exists(data_dir):
+    for file in os.listdir(data_dir):
+        if file.startswith('climate') and file.endswith(('.jpg', '.jpeg', '.png')):
+            climate_images.append(encode_image(os.path.join(data_dir, file)))
 
 # Get profile image (using climate13.jpg)
 profile_image = None
-profile_image_path = os.path.join(data_dir, 'climate13.jpg')
-if os.path.exists(profile_image_path):
+profile_image_path = os.path.join(data_dir, 'climate13.jpg') if os.path.exists(data_dir) else None
+if profile_image_path and os.path.exists(profile_image_path):
     profile_image = encode_image(profile_image_path)
 
 # Define the navbar (moved outside of create_navigation function)
@@ -298,17 +299,24 @@ def create_achievements():
         for achievement in achievements
     ]
     
-    climate_image_carousel = dbc.Carousel(
-        items=[
-            {"src": img, "caption": f"Climate Challenge Award Ceremony (Image {i+1})"} 
-            for i, img in enumerate(climate_images)
-        ],
-        controls=True,
-        indicators=True,
-        interval=3000,
-        ride="carousel",
-        className="climate-carousel shadow"
-    )
+    # Only create carousel if we have images
+    gallery_content = []
+    if climate_images:
+        climate_image_carousel = dbc.Carousel(
+            items=[
+                {"src": img, "caption": f"Climate Challenge Award Ceremony (Image {i+1})"} 
+                for i, img in enumerate(climate_images)
+            ],
+            controls=True,
+            indicators=True,
+            interval=3000,
+            ride="carousel",
+            className="climate-carousel shadow"
+        )
+        gallery_content = [
+            html.H4("Climate Challenge Award Gallery", className="gallery-title mt-5"),
+            climate_image_carousel
+        ]
     
     return dbc.Container([
         html.Div(id="achievements"),
@@ -316,8 +324,7 @@ def create_achievements():
         html.P("My work has been recognized through various competitions and challenges in the technology and agricultural sectors.",
                className="text-center lead mb-5"),
         dbc.Row(achievement_cards, className="achievement-row"),
-        html.H4("Climate Challenge Award Gallery", className="gallery-title mt-5"),
-        climate_image_carousel
+        *gallery_content
     ], className="section-container")
 
 def create_skills():
