@@ -625,4 +625,4 @@ def submit_form(n_clicks, name, email, message):
     )
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(host='0.0.0.0', debug=True)
