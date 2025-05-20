@@ -625,5 +625,4 @@ def submit_form(n_clicks, name, email, message):
     )
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 8050))  # Dynamic port for Render
-    app.run_server(host='0.0.0.0', port=port, debug=False)
+    app.run_server(debug=True)
