@@ -625,6 +625,6 @@ def submit_form(n_clicks, name, email, message):
     )
 
 if __name__ == '__main__':
-    app.run_server(debug=True, port=2045)
+    app.run_server()
 
 
