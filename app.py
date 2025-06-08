@@ -278,7 +278,7 @@ def create_achievements():
     achievements = [
         {
             "title": "2023 Cohere Multilingual Hackathon Winner",
-            "description": "First place in the prestigious Cohere hackathon, developing innovative NLP solutions that addressed real-world language processing challenges."
+            "description": "Recognized at the prestigious Cohere Multilingual Hackathon for developing innovative NLP solutions that addressed real‑world language processing challenges."
         },
         {
             "title": "Climate Risk Challenge Winner",
@@ -625,4 +625,7 @@ def submit_form(n_clicks, name, email, message):
     )
 
 if __name__ == '__main__':
-    app.run_server(debug=True, port=2045)
+    port = int(os.environ.get('PORT', 8050))  # use PORT provided by Render, default to 8050 for local dev
+    app.run_server(host='0.0.0.0', port=port, debug=False)
+
+
