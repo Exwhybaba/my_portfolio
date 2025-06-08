@@ -625,7 +625,6 @@ def submit_form(n_clicks, name, email, message):
     )
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 8050))  # use PORT provided by Render, default to 8050 for local dev
-    app.run_server(host='0.0.0.0', port=port, debug=False)
+    app.run_server(debug=True, port=2045)
 
 
