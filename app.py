@@ -329,7 +329,7 @@ def create_skills():
     technical_skills = ["Python", "Machine Learning", "Deep Learning", "Computer Vision", 
                          "Data Analysis", "Statistical Modeling", "SQL", "TensorFlow", 
                          "PyTorch", "Scikit-learn", "Pandas", "Github Action", "Docker",
-                         "Kubernates" "Agriculture Tech", 
+                         "Kubernates" "Agriculture Tech", 'Agentic AI', 'RAG', 
                          "Data Visualization", "Natural Language Processing"]
     
     domain_skills = ["Agricultural Systems", "Livestock Nutrition", "Crop Management", 
