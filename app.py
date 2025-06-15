@@ -219,9 +219,9 @@ def create_projects():
         },
         {
             "title": "Customer Churn Prediction",
-            "description": "Machine learning models to predict and prevent customer churn for agricultural service providers, enabling proactive retention strategies.",
+            "description": "Machine learning models to predict and prevent customer churn for service providers, enabling proactive retention strategies.",
             "tech": ["Machine Learning", "Predictive Analytics", "SKLearn"],
-            "link": "#",
+            "link": "https://customerchurn1.streamlit.app/",
             "icon": "fas fa-users" # Customer/user icon
         },
         {
@@ -327,13 +327,14 @@ def create_achievements():
 def create_skills():
     technical_skills = ["Python", "Machine Learning", "Deep Learning", "Computer Vision", 
                          "Data Analysis", "Statistical Modeling", "SQL", "TensorFlow", 
-                         "PyTorch", "Scikit-learn", "Pandas", "IoT", "Agriculture Tech",
+                         "PyTorch", "Scikit-learn", "Pandas", "Github Action", "Docker",
+                         "Kubernates" "Agriculture Tech", 
                          "Data Visualization", "Natural Language Processing"]
     
     domain_skills = ["Agricultural Systems", "Livestock Nutrition", "Crop Management", 
                       "Precision Agriculture", "Sustainable Farming", "Food Security", 
-                      "Supply Chain Optimization", "Business Intelligence", 
-                      "Project Management", "Research Methods"]
+                       "Business Intelligence", 
+                       "Research Methods"]
     
     return dbc.Container([
         html.Div(id="skills"),
