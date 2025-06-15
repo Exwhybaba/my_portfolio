@@ -111,6 +111,7 @@ if os.path.exists(profile_image_path):
     profile_image = encode_image(profile_image_path)
 
 # Define the navbar (moved outside of create_navigation function)
+# Update the navbar definition
 navbar = dbc.Navbar(
     dbc.Container(
         [
@@ -122,6 +123,7 @@ navbar = dbc.Navbar(
                         dbc.NavItem(dbc.NavLink("About", href="/#about", external_link=True, className="nav-link")),
                         dbc.NavItem(dbc.NavLink("Projects",  href="/#projects", external_link=True, className="nav-link")),
                         dbc.NavItem(dbc.NavLink("Achievements", href="/#achievements", external_link=True, className="nav-link")),
+                        dbc.NavItem(dbc.NavLink("Certificates", href="/#certificates", external_link=True, className="nav-link")),  # NEW
                         dbc.NavItem(dbc.NavLink("Skills", href="/#skills", external_link=True, className="nav-link")),
                         dbc.NavItem(dbc.NavLink("Contact", href="/#contact", external_link=True, className="nav-link")),
                         dbc.NavItem(dbc.NavLink("Resume", href="/resume", className="nav-link")),
@@ -359,6 +361,8 @@ def create_skills():
             ], md=6, className="mb-4")
         ])
     ], className="section-container")
+
+
 
 def create_contact():
     return dbc.Container([
