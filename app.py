@@ -150,7 +150,7 @@ def create_header():
                     html.H1("Seye Daniel Oyelayo", className="header-title"),
                     html.H3("Data Scientist & Analytics Professional", className="header-subtitle"),
                     html.Div([
-                        dbc.Button("Contact Me", color="primary", href="#contact", className="me-3 contact-btn"),
+                        dbc.Button("Contact Me", color="primary", href="/#contact", external_link=True, className="me-3 contact-btn"),
                         dbc.Button("View Resume", color="secondary", id="view-resume", href="/resume", className="me-3"),
                         html.Div([
                             html.A([html.I(className="fab fa-linkedin fa-2x me-3")], href="https://www.linkedin.com/in/seyeoyelayo/", target="_blank", className="social-icon-link"),
