@@ -148,7 +148,7 @@ def create_header():
             dbc.Col([
                 html.Div([
                     html.H1("Seye Daniel Oyelayo", className="header-title"),
-                    html.H3("Data Scientist & Analytics Professional", className="header-subtitle"),
+                    html.H3("Data Scientist & Machine Learning Professional", className="header-subtitle"),
                     html.Div([
                         dbc.Button("Contact Me", color="primary", href="/#contact", external_link=True, className="me-3 contact-btn"),
                         dbc.Button("View Resume", color="secondary", id="view-resume", href="/resume", className="me-3"),
@@ -329,7 +329,7 @@ def create_skills():
     technical_skills = ["Python", "Machine Learning", "Deep Learning", "Computer Vision", 
                          "Data Analysis", "Statistical Modeling", "SQL", "TensorFlow", 
                          "PyTorch", "Scikit-learn", "Pandas", "Github Action", "Docker",
-                         "Kubernates" "Agriculture Tech", 'Agentic AI', 'RAG', 
+                         "Kubernates", "Agriculture Tech", 'Agentic AI', 'RAG', 
                          "Data Visualization", "Natural Language Processing"]
     
     domain_skills = ["Agricultural Systems", "Livestock Nutrition", "Crop Management", 
