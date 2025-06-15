@@ -123,7 +123,6 @@ navbar = dbc.Navbar(
                         dbc.NavItem(dbc.NavLink("About", href="/#about", external_link=True, className="nav-link")),
                         dbc.NavItem(dbc.NavLink("Projects",  href="/#projects", external_link=True, className="nav-link")),
                         dbc.NavItem(dbc.NavLink("Achievements", href="/#achievements", external_link=True, className="nav-link")),
-                        dbc.NavItem(dbc.NavLink("Certificates", href="/#certificates", external_link=True, className="nav-link")),  # NEW
                         dbc.NavItem(dbc.NavLink("Skills", href="/#skills", external_link=True, className="nav-link")),
                         dbc.NavItem(dbc.NavLink("Contact", href="/#contact", external_link=True, className="nav-link")),
                         dbc.NavItem(dbc.NavLink("Resume", href="/resume", className="nav-link")),
