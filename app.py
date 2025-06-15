@@ -331,7 +331,8 @@ def create_skills():
                          "Data Analysis", "Statistical Modeling", "SQL", "TensorFlow", 
                          "PyTorch", "Scikit-learn", "Pandas", "Github Action", "Docker",
                          "Kubernates", "Agriculture Tech", 'Agentic AI', 'RAG', 
-                         "Data Visualization", "Natural Language Processing"]
+                         "Data Visualization", "Natural Language Processing", 
+                         "Infrential Statistics", "Descriptive Statistics", "Dash", "Flask"]
     
     domain_skills = ["Agricultural Systems", "Livestock Nutrition", "Crop Management", 
                       "Precision Agriculture", "Sustainable Farming", "Food Security", 
