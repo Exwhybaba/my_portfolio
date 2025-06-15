@@ -8,6 +8,7 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import flask
+from dotenv import load_dotenv
 
 # Initialize the Dash app with a more attractive Bootstrap theme (Flatly from Bootswatch)
 app = dash.Dash(__name__, external_stylesheets=[
@@ -549,11 +550,18 @@ def display_page(pathname):
 
 # Function to send email
 def send_email(name, email, message):
+    # Get credentials from environment
+    sender_email = os.environ.get('SENDER_EMAIL')
+    sender_password = os.environ.get('SENDER_PASSWORD')
+    
+    if not sender_email or not sender_password:
+        return False, "Email configuration error - credentials missing"
+    
     recipient_email = "seyeoyelayo@gmail.com"
     
     # Create message
     msg = MIMEMultipart()
-    msg['From'] = email
+    msg['From'] = sender_email
     msg['To'] = recipient_email
     msg['Subject'] = f"Portfolio Contact: Message from {name}"
     
@@ -571,9 +579,12 @@ def send_email(name, email, message):
     msg.attach(MIMEText(body, 'plain'))
     
     try:
-        # For actual deployment, you'd need to set up a proper email service or SMTP credentials
-        # This code will not work without proper SMTP configuration
-        # For demonstration purposes only
+        # Create secure connection
+        server = smtplib.SMTP('smtp.gmail.com', 587)
+        server.starttls()
+        server.login(sender_email, sender_password)
+        server.send_message(msg)
+        server.quit()
         return True, "Message sent successfully!"
     except Exception as e:
         return False, str(e)
@@ -598,32 +609,29 @@ def submit_form(n_clicks, name, email, message):
             is_open=True,
         )
     
-    # For demonstration - in a real deployment, configure a mail service
-    # success, response = send_email(name, email, message)
+    # Actually send the email
+    success, response = send_email(name, email, message)
     
-    # Form data that would be sent
-    form_data = {
-        "name": name,
-        "email": email,
-        "message": message,
-        "recipient": "seyeoyelayo@gmail.com"
-    }
-    
-    # For demonstration, always show success
-    # In real deployment, check the success variable
-    return dbc.Alert(
-        [
-            html.I(className="fas fa-check-circle me-2"),
-            "Thank you for your message! I'll get back to you soon.",
-            html.Div(
-                "Your message has been received and will be sent to seyeoyelayo@gmail.com",
-                className="small mt-2 text-muted"
-            )
-        ],
-        color="success",
-        dismissable=True,
-        is_open=True,
-    )
+    if success:
+        return dbc.Alert(
+            [
+                html.I(className="fas fa-check-circle me-2"),
+                "Thank you for your message! I'll get back to you soon.",
+            ],
+            color="success",
+            dismissable=True,
+            is_open=True,
+        )
+    else:
+        return dbc.Alert(
+            [
+                html.I(className="fas fa-exclamation-triangle me-2"),
+                f"Failed to send message: {response}"
+            ],
+            color="danger",
+            dismissable=True,
+            is_open=True,
+        )
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 8050))
