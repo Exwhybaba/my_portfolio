@@ -96,6 +96,7 @@ app.index_string = '''
 
 # Load environment variables from .env file
 load_dotenv()
+
 # server = app.server
 # Helper function to encode images
 def encode_image(image_path):
@@ -759,6 +760,6 @@ def submit_form(n_clicks, name, email, message):
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 8050))
-    app.run_server(port=port, debug = True)
+    app.run_server(port=port, host='0.0.0.0', debug = True)
 
 
