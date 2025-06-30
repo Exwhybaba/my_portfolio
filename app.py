@@ -253,7 +253,15 @@ def create_projects():
             "tech": ["Deep Learning", "Computer Vision", "Healthcare AI"],
             "link": "https://youtu.be/cawBUQm6FZk",
             "icon": "fas fa-microscope"  # Medical/scientific icon
+        },
+        {
+            "title": "Bank Customer Transaction Dashboard",
+            "description": "Interactive analytics dashboard for visualizing customer demographics, account details, and transaction patterns to drive insights on banking behavior and support decision‑making.",
+            "tech": ["Python", "Pandas", "Dash", "Plotly"],
+            "link": "https://bank-viz.onrender.com/",
+            "icon": "fas fa-university"
         }
+
     ]
 
     project_cards = [
