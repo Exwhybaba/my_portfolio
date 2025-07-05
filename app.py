@@ -257,7 +257,7 @@ def create_projects():
         {
             "title": "Bank Customer Transaction Dashboard",
             "description": "Interactive analytics dashboard for visualizing customer demographics, account details, and transaction patterns to drive insights on banking behavior and support decision‑making.",
-            "tech": ["Python", "Pandas", "Dash", "Plotly"],
+            "tech": ["Python", "Pandas", "Dash","Docker", "Plotly"],
             "link": "https://bank-viz.onrender.com/",
             "icon": "fas fa-university"
         }
