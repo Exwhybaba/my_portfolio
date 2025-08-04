@@ -23,7 +23,7 @@ app = dash.Dash(__name__, external_stylesheets=[
 server = app.server
 
 # Fix script loading issue by using a proper external_scripts parameter
-app.scripts.config.serve_locally = False  # Don't serve locally if it doesn't exist
+app.scripts.config.serve_locally = True  # Don't serve locally if it doesn't exist
 app._external_scripts = [
     {'src': 'https://code.jquery.com/jquery-3.6.0.min.js'},
     {'src': 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js'}
@@ -202,15 +202,12 @@ def create_about():
             ], width=12, md=4, className="d-flex align-items-center justify-content-center"),
             dbc.Col([
                 html.P("""
-                    I'm an inventive Data Professional with expertise in analytics and success in dealing with large data sets to break down information, 
-                    generate useful insights, and solve complex business challenges. I have hands-on experience in data wrangling, web scrapping, 
-                    machine learning and AI. I have a successful track record of recognizing patterns, creating interpretations, and providing 
-                    commercial solutions. I am a creative and strategic problem solver capable of dealing with complicated challenges, thrives in 
-                    continual challenges and fast-paced workplaces, with a strong emphasis on collaboration, driving development, and delivering new 
-                    solutions to meet the needs of customers.
+                    I am an inventive and results-oriented Data Professional with a strong focus on data analytics, machine learning, and deploying AI solutions at scale. I have a proven track record in transforming large and complex datasets into meaningful insights that drive business impact. My expertise spans data wrangling, statistical modeling, and the full machine learning lifecycle—from experimentation to production.
+                    I specialize in the productionalization of machine learning models using MLflow for experiment tracking, Docker for containerization, and CI/CD pipelines for seamless model deployment and integration. I'm skilled in developing interactive, real-time data visualizations and analytics dashboards using Dash, enabling stakeholders to make informed decisions quickly and effectively.
+                    With hands-on experience in advanced domains like computer vision and emerging technologies such as agentic AI, I bring a strategic edge to solving high-impact problems. I thrive in fast-paced, collaborative environments and consistently deliver scalable, intelligent solutions tailored to business needs.
                 """, className="about-text"),
                 html.P("""
-                    I graduated from the University of Ibadan with a BSc in Agricultural Biochemistry and Nutrition (Second Class Upper).
+                    I graduated from the University of Ibadan with a BSc in Agricultural Biochemistry and Nutrition.
                 """, className="about-text mt-3"),
             ], width=12, md=8)
         ], className="align-items-center")
@@ -363,7 +360,7 @@ def create_skills():
     technical_skills = ["Python", "Machine Learning", "Deep Learning", "Computer Vision",
                         "Data Analysis", "Statistical Modeling", "SQL", "TensorFlow",
                         "PyTorch", "Scikit-learn", "Pandas", "Github Action", "Docker", "Mlflow",
-                        "Github Actio", "Agriculture Tech", 'Agentic AI', 'RAG',
+                        "Github Action", "Agriculture Tech", 'Agentic AI', 'RAG', 'HTML', 'CSS',
                         "Data Visualization", "Natural Language Processing"]
 
     domain_skills = ["Agricultural Systems", "Livestock Nutrition", "Crop Management",
@@ -768,6 +765,6 @@ def submit_form(n_clicks, name, email, message):
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 8050))
-    app.run_server(port=port, host='0.0.0.0', debug = True)
+    app.run_server(port=port, host= '0.0.0.0', debug = True)
 
 
